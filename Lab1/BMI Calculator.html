@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0168)https://online.cs.mum.edu/access/content/attachment/e2c2221b-41a9-41ab-9376-56a8472ed354/Assignments/875be2c1-bf4a-4431-805c-bf33fe02f63b/Introduction-Exercise%200.html -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>BMI Calculator</title>
+</head>
+
+<body>
+  <h3>BMI Claculator</h3>
+  <label><input type="radio" name="unit" value="metric" checked >Metric </label><br>
+  <label><input type="radio" name="unit" value="english"> English </label><br>
+  <label>Height <input type="number" name="height" placeholder="Enter your height"></label>
+  <div id="errorHeight"></div><br>
+  <label>Weight <input type="number" name="weight" placeholder="Enter your weight"></label>
+  <div id="errorWeight"></div><br>
+  <button id="calculate">Calculate</button>
+  <div id="output"></div>
+  <script>
+    // Create a new JavaScript control class BMICalculator that has all the necessary functions 
+    class BMICalculator {
+      constructor(height, weight) {
+        this.height = height;
+        this.weight = weight;
+      }
+      calculateBMI() {
+        return this.weight / (this.height * this.height);
+
+      }
+
+      getStatus() {
+        var status = "";
+        var bmi = this.calculateBMI();
+        if (bmi < 18.5) {
+          status = "Underweight";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+          status = "Normal or Healthy Weight";
+        } else if (bmi >= 25.0 && bmi <= 29.9) {
+          status = "Over Weight";
+        }
+        else {
+          status = "Obese";
+        }
+
+        return status;
+      }
+    }
+    // Write code to make sure all inputs are valid. If not valid, give appropriate response to indicate it is invalid and that it needs to be corrected.
+
+    function isValid(input) {
+      if (input == "") {
+        errorMsg = "Can not be Empty";
+        return false;
+      }
+      if (input < 0) {
+        errorMsg = "Can not be less than zero";
+        return false;
+      }
+      return true;
+    }
+
+
+    // Use the BMICalculator class for calculations. Show BMI value and the status.
+
+    var errorMsg = "";
+    document.getElementById("calculate").onclick = function () {
+      var height = document.getElementsByName("height")[0].value;
+      var weight = document.getElementsByName("weight")[0].value;
+
+
+      if (!isValid(height)) {
+
+        document.getElementById("errorHeight").innerHTML = errorMsg;
+        return false;
+      }
+      if (!isValid(weight)) {
+
+        document.getElementById("errorWeight").innerHTML = errorMsg;
+        return false;
+      }
+//if English is selected
+      if (document.getElementsByName("unit")[1].checked) {
+        height = height * 0.025;
+        weight = weight * 0.45;
+      }
+
+      var metric = new BMICalculator();
+      metric.height = height;
+      metric.weight = weight;
+     // document.getElementById("errorHeight").innerHTML = "";
+    //  document.getElementById("errorWeight").innerHTML = "";
+
+      document.getElementById("output").innerHTML = metric.calculateBMI() + " " + metric.getStatus();
+
+    }
+  </script>
+
+
+</body>
+
+</html>

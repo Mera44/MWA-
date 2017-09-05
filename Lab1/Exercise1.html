@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow Functions</title>
+</head>
+<body>
+
+<ul>
+  <li data-time="5:17">ECMA6 Video</li>
+  <li data-time="8:22">Node Video</li>
+  <li data-time="3:34">Node Video</li>
+  <li data-time="4:29">ECMA6 Video</li>
+</ul>
+
+<script>
+
+  // Select all the list items on the page and convert to array
+  const item = Array.from(document.querySelectorAll('[data-time]'));
+  // Filter for only the elements that contain the word 'NodeJs'
+  let item1 = item.filter(x => x.innerText.includes('ECMA6'));
+  // map down to a list of time strings
+  let item2 = item1.map(x => x.getAttribute('data-time'));
+  // map to an array of seconds
+  let item3 = item2.map(x => parseInt(x.slice(x.indexOf(':') + 1, x.length)) + parseInt (x.slice(0,x.indexOf(':')) * 60));
+
+  let item4 = item3.reduce((a, b) => a + b);
+
+  // This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
+  let item5 = item.filter(x => x.innerText.includes('ECMA6')).map(x => x.getAttribute('data-time'))
+  .map(x => x.slice(x.indexOf(':') + 1, x.length)+( x.slice(0,x.indexOf(':')) * 60))
+  .reduce((a, b) => parseInt(a) + parseInt(b));
+  alert("Total ECMA6 video " +item4+" secs");
+</script>
+</body>
+</html>
+
+
