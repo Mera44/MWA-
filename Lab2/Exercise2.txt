@@ -1,0 +1,30 @@
+#1).
+
+setImmediate is faster than setTimeout, this is because that 
+
+setTimeout is calling the function after delay has finished. Whenever a function is called it is not executed 
+immediately, but it is queued to the callback queue so that it is executed after all the executing and currently 
+queued eventhandlers finish first. But, setImmediate checks queue of I/O eventhandlers. If all I/O events in the 
+current snapshot are processed, it executes the callback. It queues them immedieately after the last I/O handler.
+So it is faster.
+
+#2)
+
+setImmediate queue the function behind all I/O event callbacks that are already in the event queue. 
+
+process.nextTick queue the function at the head of the event queue, and it executes immediately after the current 
+function completes.
+
+#3)
+
+- require
+- setTimeout
+- os
+- Module
+- escape
+- dns
+- setInterval
+- buffer
+- process
+- v8
+
