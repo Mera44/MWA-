@@ -8,7 +8,7 @@ var unzip = zip.createGunzip();
 
 // readable.pipe(compressed);
 var readable = fs.createReadStream('./zipped.jpg.gz');
-var compressed = fs.createWriteStream('zipped.jpg.gz');
+var compressed = fs.createWriteStream('unZipped.jpg');
 
 
 
