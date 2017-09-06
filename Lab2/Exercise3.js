@@ -5,7 +5,7 @@ function slow(callback) {
             return callback("Error", null);
         }
 
-        callback(null, { id: 12345 })
+         callback(null, { id: 12345 })
     }, 500);
 }
 
@@ -17,7 +17,9 @@ function exec(fn) {
     fn(function (error, obj) {
 
         er = error;
+     
         data = obj;
+    
 
     });
     return {
@@ -27,7 +29,7 @@ function exec(fn) {
             setTimeout(function () {
                 if (data) {
 
-                    f(data);
+                   f(data);
                 }
 
             }, 500);
