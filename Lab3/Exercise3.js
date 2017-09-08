@@ -4,10 +4,10 @@ const EventEmmiter = require('events');
 class Clock extends EventEmmiter{
     constructor(){
         super();
-       // var data = "Wohoo";
+        var data = "Wohoo";
     }
     visit(data){
-       // console.log(this.message);
+        //console.log(this.data);
         setInterval(()=>this.emit('tick',data),1000);
     }
 
