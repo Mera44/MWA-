@@ -21,10 +21,8 @@ http.on('request',(req,res)=>{
     childprocess.send(file);
     
     childprocess.on('message',(msg) =>{
-        //console.log());
-        
-        //console.log(msg);
+         res.end(msg);        
         
     });
     
-}).listen(5000);
+}).listen(4000);
