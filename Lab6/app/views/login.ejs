@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Welcome to Our Page</h1>
+    <p>Please SignUp</p>
+
+
+    <form action="/newsletter" method="post">
+        <div class="container">
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+          <div class="clearfix">
+            <!-- <button type="button"  class="cancelbtn">Cancel</button> -->
+            <input type="hidden"  name="_csrf" value="#{csrftoken}">
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+  </body>
+</html>
