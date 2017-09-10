@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= title %></title>
-    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <!-- <style>
             table, th, td {
                 border: 1px solid black;
@@ -26,15 +26,14 @@ tr:first-child {
                     <th>Website</th>
                     
             </tr>
-        <% for(var i=0; i < 
-          .length; i++) { %>
+        <% for(var i=0; i < title.length; i++) { %>
          
            <tr>
              <td><%= title[i].id %></td>
              <td><%= title[i].name %></td>
              <td><%= title[i].username %></td>
              <td><%= title[i].email %></td>
-             <td><%= title[i].address.city %></td>
+             <!-- <td><%= title[i].address.city %></td> -->
              <td><%= title[i].address.zipcode %></td>
              <td><%= title[i].address.geo.lat %></td>
              <td><%= title[i].address.geo.lng %></td>
