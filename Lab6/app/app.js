@@ -31,10 +31,12 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-app.use(function(req,res,next){
-  res.locals.csrfToken = req.csrftoken;
-  next();
-});
+// app.use(function(req,res,next){
+
+//   res.locals.csrftoken = req.csrfToken();
+//   next();
+// });
+app.use(csrf());
 app.use(express.static(path.join(__dirname, 'public')));
 
 

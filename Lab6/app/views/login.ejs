@@ -11,12 +11,11 @@
 
     <form action="/newsletter" method="post">
         <div class="container">
+          <input type="hidden"  name="_csrf" value="<%= csrftoken %>">
           <label><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="email" required>
           <div class="clearfix">
-            <!-- <button type="button"  class="cancelbtn">Cancel</button> -->
-            <input type="hidden"  name="_csrf" value="#{csrftoken}">
-            <button type="submit" class="signupbtn">Sign Up</button>
+          <button type="submit" class="signupbtn">Sign Up</button>
           </div>
         </div>
       </form>
