@@ -1,0 +1,21 @@
+> db.rental.insert({studentname:'Amha',books:[{author:'Sidney Sheldon',isbn:'1234',tag:'comedy',borroweddate: new Date("2017-03-25"),returndate:new Date()}]})
+WriteResult({ "nInserted" : 1 })
+
+///////////////////////////////////////////
+
+
+
+> db.rental.find().pretty()
+{
+	"_id" : ObjectId("59b6e677cdac6b80c1032888"),
+	"studentname" : "Amha",
+	"books" : [
+		{
+			"author" : "Sidney Sheldon",
+			"isbn" : "1234",
+			"tag" : "comedy",
+			"borroweddate" : ISODate("2017-03-25T00:00:00Z"),
+			"returndate" : ISODate("2017-09-11T19:39:35.213Z")
+		}
+	]
+}
