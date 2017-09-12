@@ -5,6 +5,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   res.render('login', { title: 'News Letter' , csrftoken: req.csrfToken()});
 });
 router.post('/', function(req, res, next) {

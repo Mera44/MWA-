@@ -36,7 +36,7 @@ app.use(session({
 //   res.locals.csrftoken = req.csrfToken();
 //   next();
 // });
-app.use(csrf());
+ 
 app.use(express.static(path.join(__dirname, 'public')));
 
 
