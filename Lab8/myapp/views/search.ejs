@@ -43,13 +43,13 @@
    lat =position.coords.latitude ;
   
    long=  position.coords.longitude;
-  alert(lat +" "+ long);
-   }  
+//   alert(lat +" "+ long);
+  }  
    $('#sat').live('click', function () {
-    alert('send clicked');
+   // alert('send clicked');
     var toSend = $('#category').val();
     var data = {"long":long,"lat":lat,"category":toSend};
-    alert(data.lat);
+    //alert(data.lat);
 					
        
     
@@ -63,10 +63,10 @@
       cache: false,
       url: 'http://localhost:3300/search',
       success: function(data) {
-                           alert('success');
+                           console.log('success');
                             console.log(JSON.stringify(data));
                         },
-     error  : function() { alert('error');}
+     error  : function() { console.log('error');}
     });
    });
  
