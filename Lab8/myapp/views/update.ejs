@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title><%= title %></title>
+                <link rel='stylesheet' href='/stylesheets/style.css' />
+        </head>
+<body>
+<h1><%= title %></h1>
+<form action="/update" method="post">
+    Previous Name:<br>
+    <input type="text" name="oldname" placeholder="Enter Name">
+    <br>
+   New Name:<br>
+  <input type="text" name="servicename" placeholder="Enter Name">
+  <br>
+   Previous Category:<br>
+  <input type="text" name="oldcategory" placeholder="Enter Name">
+  <br>
+   New Category:<br>
+  <input type="text" name="categoryname" placeholder="Enter Category">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a Update your data.</p>
+
+</body>
+</html>

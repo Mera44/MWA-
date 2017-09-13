@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title><%= title %></title>
+                <link rel='stylesheet' href='/stylesheets/style.css' />
+        </head>
+<body>
+<h1><%= title %></h1>
+<form action="/delete" method="post">
+    Name To Delete:<br>
+    <input type="text" name="oldname" placeholder="Enter Name">
+    <br>
+    
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a Delete your data.</p>
+
+</body>
+</html>

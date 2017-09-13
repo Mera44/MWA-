@@ -1,0 +1,3 @@
+db.rental.createIndex({"books.tag":1,"books.author:-1}{background:true})
+
+db.rental.createIndex({"books.returndate":1,"studentname:-1}{background:true})

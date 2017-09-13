@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title><%= title %></title>
+                <link rel='stylesheet' href='/stylesheets/style.css' />
+        </head>
+<body>
+
+<form action="/add" method="post">
+   Name:<br>
+  <input type="text" name="servicename" placeholder="Enter Name">
+  <br>
+   Category:<br>
+  <input type="text" name="categoryname" placeholder="Enter Category">
+  <br>
+  Longitued:<br>
+  <input type="number" step="any" name="lat" placeholder="Enter longitude">
+  <br>
+  Latitude:<br>
+  <input type="number" step="any" name="long" placeholder="Enter latitude">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>

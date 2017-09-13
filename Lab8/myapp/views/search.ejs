@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title><%= title %></title>
+                <link rel='stylesheet' href='/stylesheets/style.css' />
+        </head>
+<body>
+<h1><%= title %></h1>
+<form action="/search" method="post">
+   
+   Category:<br>
+  <input type="text" name="categoryname" placeholder="Enter Category">
+  <br><br>
+  <input type="submit" value="Fine Near Me">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will Search for the nearest services.</p>
+
+</body>
+</html>
