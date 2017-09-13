@@ -3,18 +3,73 @@
         <head>
                 <title><%= title %></title>
                 <link rel='stylesheet' href='/stylesheets/style.css' />
+                <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+              
         </head>
 <body>
+
+                                
 <h1><%= title %></h1>
-<form action="/search" method="post">
+<form >
    
    Category:<br>
-  <input type="text" name="categoryname" placeholder="Enter Category">
+  <input id ="category" type="text" name="categoryname" placeholder="Enter Category">
   <br><br>
-  <input type="submit" value="Fine Near Me">
+  <input id ="sat" type="button" value="Fine Near Me">
 </form> 
 
 <p>If you click the "Submit" button, the form-data will Search for the nearest services.</p>
 
 </body>
+
+<script> 
+
+  $(document).ready(function getLocation() {
+         // alert('hi mera ----');
+      
+   if (navigator.geolocation) {
+   navigator.geolocation.getCurrentPosition(showPosition);
+   
+   }  
+    else { 
+   alert( "Geolocation is not supported by this browser.");
+          }
+
+  })
+  var long;
+  var lat;
+
+  function showPosition(position) {
+   lat =position.coords.latitude ;
+  
+   long=  position.coords.longitude;
+  alert(lat +" "+ long);
+   }  
+   $('#sat').live('click', function () {
+    alert('send clicked');
+    var toSend = $('#category').val();
+    var data = {"long":long,"lat":lat,"category":toSend};
+    alert(data.lat);
+					
+       
+    
+
+    $.ajax({
+      type: "POST",
+      //dataType: "json",
+      //data: { "category":tosend,"long":long,"lat":lat},
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      cache: false,
+      url: 'http://localhost:3300/search',
+      success: function(data) {
+                           alert('success');
+                            console.log(JSON.stringify(data));
+                        },
+     error  : function() { alert('error');}
+    });
+   });
+ 
+        
+ </script>
 </html>

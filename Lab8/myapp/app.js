@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
   req.mongo = mongoClient;
   next();
+  //db.close();
 })
 
 app.use('/', index);
@@ -53,5 +54,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(3000);
+app.listen(3300);
 module.exports = app;
