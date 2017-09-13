@@ -1,0 +1,11 @@
+1.  db.states.aggregate([{$group:{_id:{'state':'IA'},all_zipcodes:{$addToSet:'$_id'}}}]).pretty()
+
+2.db.states.aggregate([{$match:{pop:{$lte:10000}}},{$group:{_id:{'zipcode':'$_id','pop':'$pop'}}}]).pretty()
+
+3.db.states.aggregate([{$group:{_id:{'city':'$city',state:'$state'},all_zipcodes:{$addToSet:'$_id'}}},
+{$project: {city:1, states:'$_id.state',size_zip:{$size:'$all_zipcodes'}}},
+{$match: {"size_zip": {$gt: 2}}},
+{$sort:{'_id.state':1,city:1}}
+]).pretty()
+
+4.
